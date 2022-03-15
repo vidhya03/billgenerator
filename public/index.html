@@ -554,11 +554,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 								<div class="caption" style="color: #333; font-size: 16pt">
 									Receipt Details</div>
 									<br><br>
+									<br>
+									<small>Amount Format: 2122 </small>
+									<input oninput="generateBillLogic()" onkeydown="generateBillLogic()" type="number" id="amountInput" name="amountInput" placeholder="Amount" >
+									<br>
 									<small>Account no Format: 9204867887</small>
-									<input type="number" id="accountNumberInput" name="accountNumberInput" placeholder="Account no 10 digt" pattern="[0-9]{10}">
+									<input oninput="generateBillLogic()" onkeydown="generateBillLogic()" type="number" id="accountNumberInput" name="accountNumberInput" placeholder="Account no 10 digt" pattern="[0-9]{10}">
+									<br>
 									<small>Phone no Format: 4423519936</small>
-									<input type="tel" id="telephoneNumberInput" name="telephoneNumberInput" placeholder="Phone no 10 digt" pattern="[0-9]{10}">
-  
+									<input onkeydown="generateBillLogic()" type="tel" id="telephoneNumberInput" name="telephoneNumberInput" placeholder="Phone no 10 digt" pattern="[0-9]{10}">
+  									<br><br>
 									<select name="yearSelect" id="yearSelect" onchange="generateBillLogic()">
 										<option value="2021">2021</option>
 										<option value="2022">2022</option>										
@@ -1355,7 +1360,7 @@ function generateBillLogic () {
   var _date = appendZeroRandom(15)+"/"+x+"/"+calculate_financialYear+" "+appendZeroRandom(12)+":"+appendZeroRandom(59)+":"+appendZeroRandom(59);
   var _TelephoneNumber = $("#telephoneNumberInput").val();//'4424510936';
   var _accountNumber = $("#accountNumberInput").val();//'9021194080';
-  var _amount = '2122'
+  var _amount = $("#amountInput").val() //'2122'
 
   
   $("#display_invoiceNo").html(invoiceNo);
